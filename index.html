@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Александр & Мария — 3 июля 2027</title>
+
+<!-- Шрифты -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --green: #6B7F5E;
+    --sage: #A4B494;
+    --ivory: #F7F4EF;
+    --wood: #C4A98B;
+    --dark: #3E3E36;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    color: var(--dark);
+    background: var(--ivory);
+    line-height: 1.7;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+  }
+
+  section {
+    padding: 80px 20px;
+    text-align: center;
+  }
+
+  .container { max-width: 800px; margin: 0 auto; }
+
+  /* ===== ОБЛОЖКА ===== */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(rgba(107,127,94,0.55), rgba(62,62,54,0.55)),
+                url('photo.jpg') center/cover no-repeat;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .hero .leaf { font-size: 40px; margin-bottom: 20px; }
+  .hero h1 { font-size: clamp(50px, 12vw, 110px); line-height: 1.1; }
+  .hero .amp { font-size: clamp(30px, 7vw, 60px); margin: 10px 0; font-style: italic; }
+  .hero .subtitle { font-size: 20px; letter-spacing: 3px; margin-top: 30px; text-transform: uppercase; font-weight: 300; }
+  .hero .date { font-size: 26px; letter-spacing: 6px; margin-top: 15px; }
+
+  /* ===== ТАЙМЕР ===== */
+  .timer-section { background: var(--white); }
+  .timer-section h2 { font-size: 32px; color: var(--green); margin-bottom: 40px; }
+  .timer { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+  .timer-box { min-width: 90px; }
+  .timer-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    color: var(--green);
+    line-height: 1;
+  }
+  .timer-label { font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: var(--wood); margin-top: 8px; }
+
+  /* ===== ПРИГЛАШЕНИЕ ===== */
+  .invite { background: var(--ivory); }
+  .invite h2 { font-size: 36px; color: var(--green); margin-bottom: 30px; }
+  .invite p { font-size: 20px; max-width: 600px; margin: 0 auto; }
+
+  /* ===== ПРОГРАММА ===== */
+  .schedule { background: var(--white); }
+  .schedule h2 { font-size: 36px; color: var(--green); margin-bottom: 50px; }
+  .timeline { max-width: 450px; margin: 0 auto; text-align: left; }
+  .timeline-item {
+    display: flex;
+    gap: 25px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--sage);
+    align-items: baseline;
+  }
+  .timeline-time { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--green); min-width: 80px; }
+  .timeline-text { font-size: 18px; }
+
+  /* ===== МЕСТО ===== */
+  .place { background: var(--sage); color: var(--white); }
+  .place h2 { font-size: 36px; margin-bottom: 25px; }
+  .place p { font-size: 20px; max-width: 550px; margin: 0 auto; }
+
+  /* ===== ДРЕСС-КОД ===== */
+  .dresscode { background: var(--ivory); }
+  .dresscode h2 { font-size: 36px; color: var(--green); margin-bottom: 25px; }
+  .dresscode p { font-size: 19px; max-width: 600px; margin: 0 auto 35px; }
+  .colors { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+  .color-circle {
+    width: 70px; height: 70px; border-radius: 50%;
+    border: 2px solid rgba(0,0,0,0.08);
+  }
+
+  /* ===== ФОРМА ===== */
+  .rsvp { background: var(--green); color: var(--white); }
+  .rsvp h2 { font-size: 36px; margin-bottom: 20px; }
+  .rsvp > .container > p { font-size: 19px; max-width: 550px; margin: 0 auto 40px; }
+  form { max-width: 500px; margin: 0 auto; text-align: left; }
+  form label { display: block; margin: 20px 0 8px; font-size: 16px; letter-spacing: 1px; }
+  form input[type="text"],
+  form input[type="email"],
+  form textarea,
+  form select {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    background: var(--white);
+    color: var(--dark);
+  }
+  form textarea { resize: vertical; min-height: 80px; }
+  .radio-group label, .radio-group { font-weight: 300; }
+  .radio-group label { display: flex; align-items: center; gap: 10px; margin: 10px 0; cursor: pointer; }
+  .radio-group input { width: auto; }
+  .submit-btn {
+    display: block;
+    width: 100%;
+    margin-top: 35px;
+    padding: 16px;
+    background: var(--wood);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .submit-btn:hover { background: var(--dark); }
+
+  /* ===== ФУТЕР ===== */
+  footer { background: var(--dark); color: var(--white); padding: 60px 20px; }
+  footer .names { font-family: 'Cormorant Garamond', serif; font-size: 40px; margin: 15px 0; }
+  footer p { font-weight: 300; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+
+  <!-- ОБЛОЖКА -->
+  <section class="hero">
+    <div class="leaf">🌿</div>
+    <h1>Александр</h1>
+    <div class="amp">&amp;</div>
+    <h1>Мария</h1>
+    <div class="subtitle">Мы женимся</div>
+    <div class="date">03 · 07 · 2027</div>
+  </section>
+
+  <!-- ТАЙМЕР -->
+  <section class="timer-section">
+    <div class="container">
+      <h2>До нашего торжества осталось</h2>
+      <div class="timer">
+        <div class="timer-box"><div class="timer-num" id="days">00</div><div class="timer-label">дней</div></div>
+        <div class="timer-box"><div class="timer-num" id="hours">00</div><div class="timer-label">часов</div></div>
+        <div class="timer-box"><div class="timer-num" id="minutes">00</div><div class="timer-label">минут</div></div>
+        <div class="timer-box"><div class="timer-num" id="seconds">00</div><div class="timer-label">секунд</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПРИГЛАШЕНИЕ -->
+  <section class="invite">
+    <div class="container">
+      <h2>Дорогие гости!</h2>
+      <p>В этот день рядом с нами будут самые близкие и дорогие сердцу люди. Мы будем счастливы разделить с вами радость создания нашей семьи и подарить вам незабываемый вечер, наполненный любовью, теплом и улыбками.</p>
+    </div>
+  </section>
+
+  <!-- ПРОГРАММА -->
+  <section class="schedule">
+    <div class="container">
+      <h2>Программа дня</h2>
+      <div class="timeline">
+        <div class="timeline-item"><div class="timeline-time">15:00</div><div class="timeline-text">Сбор гостей</div></div>
+        <div class="timeline-item"><div class="timeline-time">15:30</div><div class="timeline-text">Церемония</div></div>
+        <div class="timeline-item"><div class="timeline-time">16:30</div><div class="timeline-text">Фуршет и фотосессия</div></div>
+        <div class="timeline-item"><div class="timeline-time">18:00</div><div class="timeline-text">Праздничный банкет</div></div>
+        <div class="timeline-item"><div class="timeline-time">23:00</div><div class="timeline-text">Завершение вечера</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- МЕСТО -->
+  <section class="place">
+    <div class="container">
+      <h2>Место проведения</h2>
+      <p>Мы готовим для вас уютное место, где проведём этот волшебный вечер. Точный адрес и схему проезда мы сообщим в ближайшее время 💌</p>
+    </div>
+  </section>
+
+  <!-- ДРЕСС-КОД -->
+  <section class="dresscode">
+    <div class="container">
+      <h2>Дресс-код</h2>
+      <p>Нам будет очень приятно, если вы поддержите атмосферу нашего праздника. Мы выбрали нежную природную палитру. Просим избегать ярких, кислотных цветов и чёрного как основного 🌿</p>
+      <div class="colors">
+        <div class="color-circle" style="background:#6B7F5E"></div>
+        <div class="color-circle" style="background:#A4B494"></div>
+        <div class="color-circle" style="background:#FFFFFF"></div>
+        <div class="color-circle" style="background:#C4A98B"></div>
+        <div class="color-circle" style="background:#F7F4EF"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФОРМА RSVP -->
+  <section class="rsvp">
+    <div class="container">
+      <h2>Подтверждение присутствия</h2>
+      <p>Пожалуйста, помогите нам всё спланировать и сообщите о своём присутствии до 1 июня 2027 года 💛</p>
+
+      <!-- ВАЖНО: замените ВАШ_КОД на свой код Formspree -->
+      <form action="https://formspree.io/f/ВАШ_КОД" method="POST">
+
+        <label>Ваше имя и фамилия</label>
+        <input type="text" name="Имя" required>
+
+        <label>Сможете ли вы присутствовать?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="Присутствие" value="Да, буду" required> Да, обязательно буду!</label>
+          <label><input type="radio" name="Присутствие" value="Не смогу"> К сожалению, не смогу</label>
+        </div>
+
+        <label>С кем вы придёте?</label>
+        <select name="С кем">
+          <option>Один / одна</option>
+          <option>С парой</option>
+          <option>С парой и детьми</option>
+        </select>
+
+        <label>Аллергия или пожелания по питанию</label>
+        <textarea name="Аллергия" placeholder="Например: вегетарианское меню, без лактозы..."></textarea>
+
+        <label>Предпочтения по напиткам (по желанию)</label>
+        <input type="text" name="Напитки">
+
+        <button type="submit" class="submit-btn">Подтвердить присутствие</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ФУТЕР -->
+  <footer>
+    <p>С любовью и трепетом ждём встречи,</p>
+    <div class="names">Александр &amp; Мария</div>
+    <p>03 июля 2027</p>
+  </footer>
+
+<script>
+  // Таймер обратного отсчёта — дата свадьбы
+  const weddingDate = new Date("2027-07-03T15:00:00").getTime();
+
+  function updateTimer() {
+    const now = new Date().getTime();
+    const diff = weddingDate - now;
+
+    if (diff < 0) {
+      document.querySelector('.timer').innerHTML = '<h2 style="color:var(--green)">Этот день настал! 💍</h2>';
+      return;
+    }
+
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('days').textContent = String(d).padStart(2,'0');
+    document.getElementById('hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('minutes').textContent = String(m).padStart(2,'0');
+    document.getElementById('seconds').textContent = String(s).padStart(2,'0');
+  }
+
+  updateTimer();
+  setInterval(updateTimer, 1000);
+</script>
+
+</body>
+</html>
